@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ЛЕН &mdash; химчистка и прачечная с курьером в Москве</title>
+<meta name="description" content="Химчистка одежды, обуви и домашнего текстиля, стирка по весу. Бесплатный курьер от 2000 рублей, срочная чистка за 24 часа. Посчитайте стоимость заказа онлайн.">
+<meta name="theme-color" content="#F1F8F5">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <a class="logo" href="#top">лен<span>химчистка · прачечная</span></a>
+  <nav class="menu">
+    <a href="#calc">Цены</a>
+    <a href="#services">Что чистим</a>
+    <a href="#care">Как бережем</a>
+    <a href="#faq">Вопросы</a>
+  </nav>
+  <a class="btn btn-mint btn-sm" href="#form">Вызвать курьера</a>
+</header>
+
+<!-- ПЕРВЫЙ ЭКРАН -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <span class="pill reveal">Курьер бесплатно от 2 000 ₽</span>
+      <h1 class="reveal">Заберем грязное.<br>Вернем <em>как новое</em></h1>
+      <p class="reveal">Химчистка одежды, обуви и домашнего текстиля, стирка по весу.
+        Курьер приедет в удобные два часа, через 3 дня привезет вещи
+        упакованными. Срочно — за сутки.</p>
+      <div class="hero-act reveal">
+        <a class="btn btn-mint" href="#calc">Посчитать заказ</a>
+        <a class="btn btn-line" href="#services">Что мы чистим</a>
+      </div>
+    </div>
+    <figure class="hero-photo reveal">
+      <img src="assets/hero.jpg" alt="Светлый зал химчистки с чистыми вещами на вешалках" fetchpriority="high">
+    </figure>
+  </div>
+
+  <ol class="wrap flow reveal">
+    <li><b>Заберем</b><span>курьер приедет в выбранный интервал</span></li>
+    <li><b>Почистим</b><span>по ярлыку и типу ткани</span></li>
+    <li><b>Привезем</b><span>отглаженное, в упаковке</span></li>
+  </ol>
+</section>
+
+<!-- КАЛЬКУЛЯТОР -->
+<section class="section calc-sec" id="calc">
+  <div class="wrap">
+    <div class="head">
+      <span class="kicker reveal">Калькулятор</span>
+      <h2 class="reveal">Сколько будет стоить</h2>
+      <p class="reveal">Добавьте вещи или укажите вес стирки — сумма и дата готовности посчитаются сразу.
+        Можно совмещать химчистку и стирку в одном заказе.</p>
+    </div>
+
+    <div class="calc reveal">
+      <div class="calc-main">
+        <div class="tabs" role="tablist">
+          <button class="tab active" type="button" role="tab" aria-selected="true" data-tab="items">Химчистка вещей</button>
+          <button class="tab" type="button" role="tab" aria-selected="false" data-tab="wash">Стирка по весу</button>
+        </div>
+
+        <div class="tab-panel" id="panel-items">
+          <div id="items"></div>
+        </div>
+
+        <div class="tab-panel" id="panel-wash" hidden>
+          <label class="kg">
+            <span class="kg-head"><b>Вес вещей</b><output id="kgOut">5 кг</output></span>
+            <input type="range" id="kg" min="0" max="15" step="1" value="0">
+            <span class="kg-hint" id="kgHint">Обычная загрузка машины — 5 кг. Минимальный заказ стирки — 3 кг.</span>
+          </label>
+          <label class="toggle"><input type="checkbox" id="iron">
+            <span><b>Погладить</b> — <i id="ironPrice"></i> ₽ за кг</span></label>
+          <p class="wash-note">Стираем белье, полотенца, повседневную одежду. Сортируем по цвету и температуре.</p>
+        </div>
+      </div>
+
+      <aside class="calc-sum" aria-live="polite">
+        <h3>Ваш заказ</h3>
+        <ul class="sum-lines" id="sumLines"><li class="empty">Пока ничего не добавлено</li></ul>
+        <label class="toggle toggle-dark"><input type="checkbox" id="urgent">
+          <span><b>Срочно за 24 часа</b> — +50%</span></label>
+        <dl class="sum-list">
+          <div><dt>Курьер</dt><dd id="sumCourier">—</dd></div>
+          <div><dt>Будет готово</dt><dd id="sumReady">—</dd></div>
+        </dl>
+        <p class="sum-total"><span>Итого</span><b id="sumTotal">0 ₽</b></p>
+        <p class="sum-hint" id="sumHint"></p>
+        <a class="btn btn-mint btn-wide" href="#form" id="toForm">Оформить вызов курьера</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ЧТО ЧИСТИМ -->
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="head">
+      <span class="kicker reveal">Что чистим</span>
+      <h2 class="reveal">От рубашки до ковра</h2>
+    </div>
+    <div class="services">
+      <article class="svc svc-tall reveal"><img src="assets/coat.jpg" alt="Пальто на деревянной вешалке" loading="lazy">
+        <div class="svc-in"><h3>Верхняя одежда</h3><p>Пальто, пуховики, куртки. Пуховики сушим с теннисными мячами — пух не сбивается.</p></div></article>
+      <article class="svc reveal"><img src="assets/iron.jpg" alt="Глажка белой рубашки паром" loading="lazy">
+        <div class="svc-in"><h3>Деловая одежда</h3><p>Рубашки, костюмы, платья. Паровая глажка и упаковка на вешалке.</p></div></article>
+      <article class="svc reveal"><img src="assets/sneakers.jpg" alt="Чистые белые кроссовки и щетка" loading="lazy">
+        <div class="svc-in"><h3>Обувь</h3><p>Кроссовки, замша, кожа. Чистим вручную, отбеливаем подошву.</p></div></article>
+      <article class="svc reveal"><img src="assets/carpet.jpg" alt="Чистый мягкий ковер в светлой комнате" loading="lazy">
+        <div class="svc-in"><h3>Ковры и шторы</h3><p>Заберем и повесим обратно. Ковры — от 450 ₽ за м², выезд замерщика бесплатно.</p></div></article>
+      <article class="svc reveal"><img src="assets/pack.jpg" alt="Стопка чистого белья в крафтовой упаковке" loading="lazy">
+        <div class="svc-in"><h3>Стирка по весу</h3><p>Белье, полотенца, повседневное — от 3 кг. Сложим аккуратно, как в магазине.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- КАК БЕРЕЖЕМ -->
+<section class="section care-sec" id="care">
+  <div class="wrap">
+    <div class="head">
+      <span class="kicker reveal">Как бережем вещи</span>
+      <h2 class="reveal">Чистим так, как чистили бы свое</h2>
+    </div>
+    <div class="care">
+      <div class="care-item reveal"><span class="care-ic">✓</span><h3>Осмотр при приеме</h3>
+        <p>Курьер при вас отмечает пятна, зацепки и потертости в акте. Никаких споров потом.</p></div>
+      <div class="care-item reveal"><span class="care-ic">✓</span><h3>По ярлыку и ткани</h3>
+        <p>Режим выбираем по символам ухода. Нет ярлыка — сначала проверяем на незаметном месте.</p></div>
+      <div class="care-item reveal"><span class="care-ic">✓</span><h3>Мягкие средства</h3>
+        <p>Без резкого запаха, безопасно для детских вещей и аллергиков.</p></div>
+      <div class="care-item reveal"><span class="care-ic">✓</span><h3>Ответственность</h3>
+        <p>Если испортим вещь по своей вине — возместим ее стоимость по договору.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ОТЗЫВЫ -->
+<section class="section" id="reviews">
+  <div class="wrap">
+    <div class="head"><span class="kicker reveal">Отзывы</span>
+      <h2 class="reveal">Что говорят клиенты</h2></div>
+    <div class="reviews">
+      <blockquote class="review reveal"><p>«Отдаю рубашки мужа раз в неделю. Курьер приходит вечером, через три дня все висит отглаженное. Больше не стою у гладильной доски».</p>
+        <cite>Ольга · рубашки по подписке</cite></blockquote>
+      <blockquote class="review reveal"><p>«Белые кроссовки после фестиваля были серыми. Вернули реально белыми, даже шнурки».</p>
+        <cite>Денис · чистка обуви</cite></blockquote>
+      <blockquote class="review reveal"><p>«Пуховик после чистки пышный, без комков и разводов. Курьер аккуратно отметил старое пятно в акте — его тоже вывели».</p>
+        <cite>Мария · пуховик</cite></blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ВОПРОСЫ -->
+<section class="section faq-sec" id="faq">
+  <div class="wrap faq-grid">
+    <div class="head"><span class="kicker reveal">Вопросы</span>
+      <h2 class="reveal">Частые вопросы</h2></div>
+    <div class="faq">
+      <details class="reveal"><summary>Все ли пятна выводятся?</summary>
+        <p>Большинство — да. Но старые пятна от краски, ржавчины и масла иногда выходят не полностью.
+          Курьер честно скажет об этом при приеме и отметит в акте.</p></details>
+      <details class="reveal"><summary>Как работает курьер?</summary>
+        <p>Выберите двухчасовой интервал — курьер приедет, осмотрит вещи и выдаст квитанцию.
+          При заказе от 2 000 ₽ доставка в обе стороны бесплатна, иначе 300 ₽.</p></details>
+      <details class="reveal"><summary>Можно ли срочно?</summary>
+        <p>Да, за 24 часа с наценкой 50%. Пуховики и ковры срочно не берем — им нужно время на сушку.</p></details>
+      <details class="reveal"><summary>Как оплатить?</summary>
+        <p>Картой или наличными курьеру при возврате вещей. Кассовый чек отправим на почту или в СМС.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ЗАЯВКА -->
+<section class="section form-sec" id="form">
+  <div class="wrap form-grid">
+    <div class="form-info">
+      <span class="kicker reveal">Вызов курьера</span>
+      <h2 class="reveal">Курьер приедет, когда удобно вам</h2>
+      <p class="reveal">Оставьте телефон и адрес, выберите время — мы позвоним и подтвердим.</p>
+      <div class="contacts reveal">
+        <a href="tel:+74950000000">+7 495 000-00-00</a>
+        <span>Ежедневно 8:00–22:00 · вся Москва в пределах МКАД</span>
+      </div>
+    </div>
+
+    <form class="lead reveal" id="leadForm" novalidate>
+      <div class="row2">
+        <label class="field"><span>Имя</span><input type="text" id="name" placeholder="Ольга" autocomplete="name"></label>
+        <label class="field"><span>Телефон</span><input type="tel" id="phone" placeholder="+7 900 000-00-00" autocomplete="tel"></label>
+      </div>
+      <label class="field"><span>Адрес</span><input type="text" id="address" placeholder="Улица, дом, квартира" autocomplete="street-address"></label>
+      <div class="row2">
+        <label class="field"><span>День</span><select id="day"></select></label>
+        <label class="field"><span>Время</span><select id="slot">
+          <option>08:00–10:00</option><option>10:00–12:00</option><option>12:00–14:00</option>
+          <option>14:00–16:00</option><option>16:00–18:00</option><option selected>18:00–20:00</option><option>20:00–22:00</option>
+        </select></label>
+      </div>
+      <label class="field"><span>Что заберем (не обязательно)</span>
+        <textarea id="note" rows="3" placeholder="Пуховик и две рубашки"></textarea></label>
+      <label class="check"><input type="checkbox" id="agree"><span>Согласна(-ен) на обработку персональных данных</span></label>
+      <button class="btn btn-mint btn-wide" type="submit">Вызвать курьера</button>
+      <p class="ok" id="ok" hidden></p>
+    </form>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot-row">
+    <span>ЛЕН — химчистка и прачечная</span>
+    <span class="demo">Демонстрационный сайт. Компания вымышлена, цены условные, фотографии сгенерированы.</span>
+    <a href="https://t.me/VladisavSSS" target="_blank" rel="noopener">Сделал сайт: @VladisavSSS</a>
+  </div>
+</footer>
+
+<a class="call-fab" href="#calc">Посчитать заказ</a>
+
+<script src="js/prices.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

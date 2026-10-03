@@ -1,0 +1,241 @@
+/* ЛЁН — химчистка и прачечная. Светлая, «воздушная» тема: мята + персик. */
+
+:root{
+  --bg:#F1F8F5;
+  --card:#FFFFFF;
+  --ink:#12302B;
+  --muted:#5D706B;
+  --line:#DCEBE5;
+  --mint:#23A98C;
+  --mint-dk:#1B8B73;
+  --mint-lt:#DFF3EC;
+  --peach:#FF8A65;
+  --deep:#0F3B33;
+  --bad:#D2452F;
+  --r:24px;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --display:"Montserrat Alternates",Manrope,system-ui,sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+[hidden]{display:none !important}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--ink);
+  font:400 16px/1.6 Manrope,system-ui,-apple-system,"Segoe UI",sans-serif;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+ul,ol{list-style:none}
+button,select{font:inherit}
+::selection{background:rgba(35,169,140,.2)}
+
+.wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 clamp(18px,4vw,44px)}
+.section{padding:clamp(60px,9vh,108px) 0}
+section[id]{scroll-margin-top:80px}
+
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.14;letter-spacing:-.02em}
+h2{font-size:clamp(26px,3.6vw,42px)}
+h3{font-size:19px}
+.head{max-width:680px;margin-bottom:clamp(30px,5vh,50px)}
+.head p{margin-top:14px;color:var(--muted);font-size:17px}
+.kicker{display:inline-block;margin-bottom:12px;font-size:14px;font-weight:700;color:var(--mint)}
+
+/* ---------- кнопки ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:15px 28px;border-radius:100px;
+  font-weight:700;font-size:15px;border:1px solid transparent;cursor:pointer;
+  transition:transform .25s var(--ease),background .25s,border-color .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.btn-mint{background:var(--mint);color:#fff;box-shadow:0 12px 26px -14px rgba(35,169,140,.9)}
+.btn-mint:hover{background:var(--mint-dk)}
+.btn-line{border-color:var(--line);background:var(--card)}
+.btn-line:hover{border-color:var(--mint)}
+.btn-sm{padding:11px 20px;font-size:14px}
+.btn-wide{width:100%}
+
+/* ---------- шапка ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;gap:28px;
+  padding:16px clamp(18px,4vw,44px);transition:background .3s,box-shadow .3s,padding .3s}
+.nav.stuck{background:rgba(241,248,245,.92);backdrop-filter:blur(12px);padding-top:10px;padding-bottom:10px;box-shadow:0 1px 0 var(--line)}
+.logo{font-family:var(--display);font-weight:700;font-size:26px;display:flex;flex-direction:column;line-height:1;color:var(--deep)}
+.logo span{font-family:Manrope,sans-serif;font-size:12px;font-weight:600;color:var(--muted);margin-top:4px}
+.menu{display:flex;gap:26px;margin-left:auto;font-weight:600;font-size:15px}
+.menu a{color:var(--muted);transition:color .2s}
+.menu a:hover{color:var(--mint)}
+
+/* ---------- первый экран ---------- */
+.hero{padding:clamp(110px,15vh,150px) 0 30px}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,70px);align-items:center}
+.pill{display:inline-block;padding:8px 16px;border-radius:100px;background:var(--mint-lt);color:var(--mint-dk);
+  font-size:14px;font-weight:700;margin-bottom:22px}
+.hero h1{font-size:clamp(34px,5.2vw,62px);color:var(--deep)}
+.hero h1 em{font-style:normal;color:var(--mint)}
+.hero p{margin-top:20px;font-size:18px;color:var(--muted);max-width:520px}
+.hero-act{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.hero-photo{border-radius:40px 40px 40px 120px;overflow:hidden;aspect-ratio:4/3.6}
+.hero-photo img{width:100%;height:100%;object-fit:cover}
+.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:clamp(36px,6vh,60px);counter-reset:f}
+.flow li{counter-increment:f;background:var(--card);border-radius:20px;padding:20px 22px 20px 70px;position:relative}
+.flow li::before{content:counter(f);position:absolute;left:20px;top:50%;transform:translateY(-50%);width:36px;height:36px;
+  border-radius:50%;background:var(--mint-lt);color:var(--mint-dk);display:grid;place-items:center;font-family:var(--display);font-weight:700}
+.flow b{display:block;font-size:17px}
+.flow span{font-size:14px;color:var(--muted)}
+
+/* ---------- калькулятор ---------- */
+.calc-sec{background:var(--card)}
+.calc{display:grid;grid-template-columns:1.35fr .9fr;gap:24px;align-items:start}
+.tabs{display:inline-flex;gap:4px;padding:5px;border-radius:100px;background:var(--bg);margin-bottom:22px}
+.tab{border:0;background:transparent;padding:11px 20px;border-radius:100px;font-weight:700;font-size:15px;color:var(--muted);cursor:pointer;transition:background .2s,color .2s}
+.tab.active{background:var(--card);color:var(--ink);box-shadow:0 4px 14px -6px rgba(15,59,51,.25)}
+.tab:focus-visible{outline:2px solid var(--mint);outline-offset:2px}
+.group + .group{margin-top:18px}
+.group-name{font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+.item{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:16px;padding:10px 0;border-bottom:1px solid var(--line)}
+.item.picked .item-name{font-weight:700}
+.item-price{color:var(--muted);font-size:15px;white-space:nowrap}
+.counter{display:flex;align-items:center;gap:4px}
+.counter button{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--card);
+  font-size:18px;line-height:1;cursor:pointer;color:var(--ink);transition:border-color .2s,background .2s}
+.counter button:hover{border-color:var(--mint)}
+.counter .plus{background:var(--mint-lt);border-color:var(--mint-lt);color:var(--mint-dk)}
+.counter output{min-width:26px;text-align:center;font-weight:700}
+.kg{display:grid;gap:12px}
+.kg-head{display:flex;justify-content:space-between;align-items:baseline}
+.kg-head output{font-family:var(--display);font-size:26px;font-weight:700;color:var(--mint)}
+.kg input{width:100%;accent-color:var(--mint);height:28px}
+.kg-hint,.wash-note{font-size:14px;color:var(--muted)}
+.wash-note{margin-top:18px}
+.toggle{display:flex;gap:12px;align-items:center;margin-top:18px;cursor:pointer;font-size:15px}
+.toggle input{width:20px;height:20px;accent-color:var(--mint);flex:none}
+.toggle i{font-style:normal}
+.calc-sum{position:sticky;top:90px;background:var(--deep);color:#fff;border-radius:var(--r);padding:30px}
+.calc-sum h3{font-size:20px;margin-bottom:16px}
+.sum-lines{display:grid;gap:8px;max-height:220px;overflow:auto;padding-right:4px}
+.sum-lines li{display:flex;justify-content:space-between;gap:12px;font-size:15px}
+.sum-lines li span{color:rgba(255,255,255,.75)}
+.sum-lines .empty{color:rgba(255,255,255,.5)}
+.toggle-dark{padding:14px 0;border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12);margin:18px 0 14px}
+.sum-list{display:grid;gap:8px}
+.sum-list div{display:flex;justify-content:space-between;gap:12px;font-size:15px}
+.sum-list dt{color:rgba(255,255,255,.6)}
+.sum-list dd{font-weight:700;text-align:right}
+.sum-total{display:flex;justify-content:space-between;align-items:baseline;margin:20px 0 8px}
+.sum-total b{font-family:var(--display);font-size:32px}
+.sum-hint{min-height:20px;font-size:13px;color:#FFC7B4;margin-bottom:16px}
+
+/* ---------- что чистим ---------- */
+.services{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:18px}
+.svc{background:var(--card);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.svc-tall{grid-row:span 2}
+.svc img{width:100%;aspect-ratio:16/10;object-fit:cover}
+.svc-tall img{flex:1;aspect-ratio:auto;min-height:280px}
+.svc-in{padding:20px 22px 24px}
+.svc-in p{font-size:14px;color:var(--muted);margin-top:6px}
+
+/* ---------- бережём ---------- */
+.care-sec{background:var(--deep);color:#fff}
+.care-sec .kicker{color:#7FE0C7}
+.care{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.care-item{background:rgba(255,255,255,.06);border-radius:20px;padding:26px 22px}
+.care-ic{width:36px;height:36px;border-radius:50%;background:var(--mint);display:grid;place-items:center;font-weight:700}
+.care-item h3{margin:16px 0 8px;font-size:18px}
+.care-item p{font-size:15px;color:rgba(255,255,255,.7)}
+
+/* ---------- отзывы ---------- */
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.review{background:var(--card);border-radius:var(--r);padding:28px;display:flex;flex-direction:column;justify-content:space-between;gap:18px}
+.review cite{font-style:normal;font-size:14px;font-weight:700;color:var(--mint-dk)}
+
+/* ---------- вопросы ---------- */
+.faq-sec{background:var(--card)}
+.faq-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:clamp(30px,5vw,70px);align-items:start}
+.faq{display:grid;gap:10px}
+.faq details{background:var(--bg);border-radius:18px;padding:18px 22px}
+.faq summary{cursor:pointer;font-weight:700;list-style:none;position:relative;padding-right:30px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:0;top:-4px;font-size:24px;color:var(--mint);transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq p{margin-top:10px;color:var(--muted)}
+
+/* ---------- заявка ---------- */
+.form-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,5vw,70px);align-items:start}
+.form-info p{margin-top:14px;color:var(--muted);font-size:17px}
+.contacts{display:grid;gap:4px;margin-top:28px}
+.contacts a{font-family:var(--display);font-size:26px;font-weight:700;color:var(--deep)}
+.contacts span{color:var(--muted);font-size:15px}
+.lead{background:var(--card);border-radius:var(--r);padding:clamp(22px,3vw,34px);display:grid;gap:16px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{display:grid;gap:6px}
+.field span{font-size:14px;font-weight:700}
+.field input,.field textarea,.field select{width:100%;font-size:16px;padding:13px 15px;border:1px solid var(--line);border-radius:14px;
+  background:#fff;color:var(--ink);resize:vertical;transition:border-color .2s}
+.field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--mint)}
+.field.bad input{border-color:var(--bad)}
+.err{font-size:13px;color:var(--bad)}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--muted);cursor:pointer}
+.check input{margin-top:3px;width:16px;height:16px;accent-color:var(--mint);flex:none}
+.check.bad span{color:var(--bad)}
+.ok{padding:14px;border-radius:14px;background:var(--mint-lt);color:var(--mint-dk);font-weight:700;text-align:center}
+
+/* ---------- подвал ---------- */
+.foot{background:var(--deep);color:rgba(255,255,255,.7);padding:28px 0 32px;font-size:14px}
+.foot-row{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.foot .demo{color:rgba(255,255,255,.45);max-width:480px}
+.foot a{color:#7FE0C7}
+
+.call-fab{display:none;position:fixed;left:16px;right:16px;bottom:14px;z-index:60;background:var(--mint);color:#fff;text-align:center;
+  font-weight:700;padding:15px;border-radius:100px;box-shadow:0 14px 30px -12px rgba(15,59,51,.6);transition:transform .3s var(--ease)}
+.call-fab.hide{transform:translateY(140%)}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- адаптив ---------- */
+@media (max-width:1100px){
+  .menu{gap:18px}
+  .care{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:960px){
+  .menu{display:none}
+  .nav .btn-sm{margin-left:auto}
+  .hero-grid,.form-grid,.faq-grid{grid-template-columns:1fr}
+  .hero-photo{aspect-ratio:16/10;border-radius:30px 30px 30px 80px}
+  .calc{grid-template-columns:1fr}
+  .calc-sum{position:static}
+  .services{grid-template-columns:repeat(2,1fr)}
+  .svc-tall{grid-row:auto;grid-column:span 2}
+  .svc-tall img{min-height:0;aspect-ratio:16/9}
+  .reviews{grid-template-columns:1fr}
+}
+@media (max-width:700px){
+  .flow{grid-template-columns:1fr}
+  .call-fab{display:block}
+  .foot{padding-bottom:90px}
+}
+@media (max-width:520px){
+  .hero p{font-size:16px}
+  .hero-act .btn{width:100%}
+  .services{grid-template-columns:1fr}
+  .svc-tall{grid-column:auto}
+  .care{grid-template-columns:1fr}
+  .row2{grid-template-columns:1fr}
+  .tabs{display:flex}
+  .tab{flex:1;padding:10px 12px;font-size:14px}
+  .item{grid-template-columns:1fr auto;gap:4px 12px}
+  .item-price{grid-row:2;font-size:14px}
+  .counter{grid-row:span 2}
+  .calc-sum,.review{padding:24px 20px}
+  .contacts a{font-size:22px}
+}
+@media (max-width:360px){
+  .logo{font-size:22px}
+  .hero h1{font-size:30px}
+  .sum-total b{font-size:26px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none !important;transition:none !important}
+  .reveal{opacity:1;transform:none}
+}
